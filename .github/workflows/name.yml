@@ -11,4 +11,4 @@ jobs:
     steps:
       - name: Display a message
         run: |
-          echo "Hello, my name is John Doe!"
+          echo "JS - My Name is JS Sudha"
