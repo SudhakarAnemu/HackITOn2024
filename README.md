@@ -25,6 +25,11 @@ Default region name [us-east-1]: ap-south-1
 Default output format [table]:
 
 
+---------------------------------------------------- Frequent errors : 
+Warning: Unexpected input(s) 'AWS_DEFAULT_REGION', valid inputs are ['audience', 'aws-access-key-id', 'aws-secret-access-key', 'aws-session-token', 'aws-region', 'mask-aws-account-id', 'role-to-assume', 'web-identity-token-file', 'role-duration-seconds', 'role-session-name', 'role-external-id', 'role-skip-session-tagging']
+Run aws-actions/configure-aws-credentials@v1
+Error: Input required and not supplied: aws-region
+
 
 
 
