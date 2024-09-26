@@ -1,5 +1,9 @@
 # HackITOn2024
 
+Good urls :
+https://github.com/aws-actions/configure-aws-credentials
+
+
 aws : sudhaeai@gmail.com
 
 1. Created MQVM vm on aws - 
