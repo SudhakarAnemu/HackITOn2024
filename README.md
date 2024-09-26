@@ -59,3 +59,53 @@ scp -i <private_key_file> <local_file> <username>@<public_ip_address>:<remote_di
 scp -i <private_key_file> <local_file> <username>@<public_ip_address>:<remote_directory>
 
 scp -i jssepaws2024sudhaeaiPublickKey js.txt ec2-user@13.126.81.144:/tmp/
+
+
+----------------------> Create AWS ami : 
+
+To create an AMI on AWS, you can follow these steps:
+
+1. Launch an instance:
+
+Go to the EC2 console in the AWS Management Console.
+Click "Launch Instance".
+Choose an appropriate AMI from the list of available AMIs.
+Configure the instance settings as needed (instance type, key pair, security group, etc.).
+Launch the instance.
+2. Install and configure your desired software:
+
+Connect to the instance using SSH or another appropriate method.
+Install and configure any necessary software or applications.
+3. Create a snapshot:
+
+Go to the EC2 console and select the instance you want to create a snapshot from.
+In the "Actions" menu, choose "Create Image".
+Specify a name and description for the AMI.
+Select the root volume to create a snapshot from.
+Click "Create Image".
+4. Wait for the snapshot to complete:
+
+The process may take some time depending on the size of the root volume.
+5. Create an AMI from the snapshot:
+
+Once the snapshot is complete, select it in the EC2 console.
+In the "Actions" menu, choose "Create Image".
+Specify a name and description for the AMI.
+Click "Create Image".
+6. Wait for the AMI to complete:
+
+The process may take some time depending on the size of the snapshot.
+7. Launch instances from the new AMI:
+
+Once the AMI is complete, you can launch new instances from it using the same process as before.
+Additional tips:
+
+You can create custom AMIs from your own instances, or use pre-built AMIs provided by AWS or third-party vendors.
+Consider using tags to organize and manage your AMIs.
+You can delete AMIs that you no longer need to save storage space.
+For more complex scenarios, you can use tools like AWS CloudFormation to automate the process of creating and managing AMIs.
+By following these steps, you can create custom AMIs on AWS and use them to launch instances with your desired configuration.
+
+------------------------
+
+
