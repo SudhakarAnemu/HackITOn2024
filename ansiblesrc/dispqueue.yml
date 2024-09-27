@@ -1,0 +1,19 @@
+---
+- name: Display IBM MQ Queue Properties
+  hosts: mq_servers
+  become: yes
+  become_user: mqm
+  vars:
+    # Queue manager and queue name will be provided as parameters
+    qmgr_name: "{{ qmgr_name }}"
+    queue_name: "{{ queue_name }}"
+    maxdepth: "{{ maxdepth }}"
+  tasks:
+    - name: Display queue properties
+      shell: |
+        echo "DISPLAY QLOCAL('{{ queue_name }}') {{ maxdepth }}" | runmqsc {{ qmgr_name }}
+      register: mq_queue_properties
+
+    - name: Show queue properties
+      debug:
+        msg: "Queue Properties:\n{{ mq_queue_properties.stdout }}"
