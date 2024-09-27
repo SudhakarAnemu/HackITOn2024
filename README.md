@@ -12,7 +12,15 @@ aws : sudhaeai@gmail.com
 4. Created a new VM from existing AMI - its good 
 Here we need to specify the key and secuirty group at Console. 
 5. Lets create VM using Terraform. (Under a subranch Terrarom)
+6. Install ansible on aws 
 
+----------------------------------------------------------------------- step 6. 
+Install ansible on rhl9 - aws 
+
+sudo yum update
+sudo yum install epel-release
+sudo yum install ansible
+ansible --version
 
 
 ---------------------------------------------------------------------- Step 5. 
