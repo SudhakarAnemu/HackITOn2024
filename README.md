@@ -20,7 +20,10 @@ Issues.
 solution : Added public of master to Slaves knownhosts. 
 
 quick commands : 
- ansible-playbook disptime.yml -i hosts
+
+ansible-playbook disptime.yml -i hosts
+ansible-playbook strmqm.yml -i hosts -e @vars.yml
+
 
 
 
@@ -90,7 +93,11 @@ Suggestions.
    remove qmgr from a cluster. 
 5. Terraform to create a new instance.
 6.  Github actions -> update new vm details -> push the code -> terraform apply -> VM creation. 
-7. 
+7. PR - should be approved by the Team lead.
+   TM will submit a PR -> Senior TM should approve the change.
+8. Motto - No one should login to the server until unless there is a dead sitution.
+9. Everything should be logged in Git. and required permissions from TM for critical tasks. 
+10. 
 
 Tools : 
 
