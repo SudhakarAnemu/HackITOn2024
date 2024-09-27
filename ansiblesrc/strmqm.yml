@@ -1,0 +1,33 @@
+---
+- name: Display Queue managers
+  hosts: mq_servers
+  become: yes
+  become_user: mqm
+  tasks:
+  
+    - name: Display Queue Managers
+      shell: dspmq
+      args:
+        executable: /bin/bash
+      register: dspmq_output
+
+    - debug:
+        msg: "{{ dspmq_output.stdout }}"
+
+    - name: Start qmgrs
+      shell: strmqm
+      args:
+        executable: /bin/bash
+      register: strmq_output
+
+    - debug:
+        msg: "{{ strmq_output.stdout }}"
+
+    - name: Display Queue Managers
+      shell: dspmq
+      args:
+        executable: /bin/bash
+      register: dspmq_output
+
+    - debug:
+        msg: "{{ dspmq_output.stdout }}"
