@@ -11,7 +11,7 @@
   tasks:
     - name: Alter the MQ Queue
       shell: |
-        echo "ALTER QLOCAL('{{ queue_name }}') MAXDEPTH({{ max_depth }}) DESCR('{{ description }}')" | runmqsc {{ qmgr_name }}
+        echo "ALTER QLOCAL('{{ queue_name }}') MAXDEPTH({{ maxdepth }}) DESCR('{{ description }}')" | runmqsc {{ qmgr_name }}
       register: mq_command_output
       ignore_errors: yes
 
