@@ -11,7 +11,53 @@ aws : sudhaeai@gmail.com
 3. Create AMI from this VM
 4. Created a new VM from existing AMI - its good 
 Here we need to specify the key and secuirty group at Console. 
-5. Lets create VM using Terraform. 
+5. Lets create VM using Terraform. (Under a subranch Terrarom)
+6. Install ansible on aws 
+
+----------------------------------------------------------------------- step 6. 
+Issues. 
+1. Initial playbook was failed due to permission denied. 
+solution : Added public of master to Slaves knownhosts. 
+
+quick commands : 
+ ansible-playbook disptime.yml -i hosts
+
+
+
+Install ansible and aws cli on rhl9 - aws 
+ansible-galaxy collection install --force amazon.aws  --> install galaxy 
+
+
+
+------------> install ansible
+sudo yum update
+sudo yum install epel-release
+sudo yum install ansible              or    dnf install ansible-core
+ansible --version
+
+[root@ip-172-31-36-152 ~]# ansible --version
+ansible [core 2.14.14]
+
+----------> Install aws cli 
+
+   6  df -h
+    7  id mqm
+    8  sudo pip3 install awscli
+    9  sudo dnf update
+   10  sudo dnf install python3
+   11  sudo dnf install python3-pip
+   12  sudo pip3 install awscli
+   13  awsconfig
+   14  aws config
+   15  history
+[root@ip-172-31-36-152 ~]#
+
+[root@ip-172-31-36-152 ~]# aws ec2 describe-instances | grep MQ
+                            "Value": "MQVMRHL9TEMPLATE"
+                            "Value": "UAEMQ"
+                            "Value": "INMQ"
+[root@ip-172-31-36-152 ~]#
+
 
 
 
@@ -116,5 +162,4 @@ For more complex scenarios, you can use tools like AWS CloudFormation to automat
 By following these steps, you can create custom AMIs on AWS and use them to launch instances with your desired configuration.
 
 ------------------------
-
 
