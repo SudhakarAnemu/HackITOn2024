@@ -11,7 +11,7 @@
   tasks:
     - name: Display queue properties
       shell: |
-        echo "DISPLAY QLOCAL('{{ queue_name }}') {{ maxdepth }}" | runmqsc {{ qmgr_name }}
+        echo "DISPLAY QLOCAL('{{ queue_name }}') maxdepth" | runmqsc {{ qmgr_name }}
       register: mq_queue_properties
 
     - name: Show queue properties

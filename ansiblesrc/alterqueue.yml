@@ -1,0 +1,29 @@
+---
+- name: Alter IBM MQ Queue Properties
+  hosts: mq_servers
+  become: yes
+  become_user: mqm
+  vars:
+    # Queue manager and queue name will be provided as parameters
+    qmgr_name: "{{ qmgr_name }}"
+    queue_name: "{{ queue_name }}"
+    maxdepth: "{{ maxdepth }}"
+  tasks:
+    - name: Alter the MQ Queue
+      shell: |
+        echo "ALTER QLOCAL('{{ queue_name }}') MAXDEPTH({{ max_depth }}) DESCR('{{ description }}')" | runmqsc {{ qmgr_name }}
+      register: mq_command_output
+      ignore_errors: yes
+
+    - name: Display command output
+      debug:
+        var: mq_command_output.stdout
+
+    - name: Check if the queue was altered successfully
+      shell: |
+        echo "DISPLAY QLOCAL('{{ queue_name }}') MAXDEPTH" | runmqsc {{ qmgr_name }}
+      register: mq_queue_status
+
+    - name: Show updated queue status
+      debug:
+        msg: "Updated Queue Info: {{ mq_queue_status.stdout }}"
