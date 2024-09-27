@@ -2,8 +2,8 @@ terraform {
   required_version = ">=0.13.0"
   required_providers {
     aws = {
-      source = "hashicorp/aws"
-      version = "~>3.0"
+      source  = "hashicorp/aws"
+      version = "~> 3.0"
     }
   }
 }
@@ -11,7 +11,6 @@ terraform {
 provider "aws" {
   region = "ap-south-1"
 }
-
 
 resource "aws_instance" "example" {
   ami           = "ami-05938fdb1ee29ea96" # Replace with the AMI ID of your template
