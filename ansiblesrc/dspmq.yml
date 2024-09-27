@@ -1,0 +1,15 @@
+---
+- name: Display Queue managers
+  hosts: mq_servers
+  become: yes
+  become_user: mqm
+  tasks:
+  
+    - name: Display Queue Managers
+      shell: dspmq
+      args:
+        executable: /bin/bash
+      register: dspmq_output
+
+    - debug:
+        msg: "{{ dspmq_output.stdout }}"
