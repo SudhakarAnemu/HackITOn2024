@@ -20,7 +20,7 @@ jobs:
                   aws-region: ${{ secrets.AWS_REGION }}
                   
             - name: HashiCorp - Setup Terraform
-              uses: hashicorp/setup-terraform@v1 #3.1.2
+              uses: hashicorp/setup-terraform@v3.1.2
             
             #Initialize the tf
             - name: Initialize Terraform
