@@ -18,6 +18,6 @@ resource "aws_instance" "example" {
   key_name      = "jssepaws2024sudhaeai"
 
   tags = {
-    Name = "MQSaketh2024"
+    Name = "ansibleserver"
   }
 }
