@@ -11,7 +11,7 @@ aws : sudhaeai@gmail.com
 3. Create AMI from this VM
 4. Created a new VM from existing AMI - its good 
 Here we need to specify the key and secuirty group at Console. 
-5. Lets create VM using Terraform. 
+5. Lets create VM using Terraform. (Under a subranch Terrarom)
 
 
 

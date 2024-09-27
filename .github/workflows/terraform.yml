@@ -3,7 +3,7 @@ name: "Creating AWS Instance"
 on:
   push:
     branches:
-      - main
+      - terraform
 
 jobs:
   build:
