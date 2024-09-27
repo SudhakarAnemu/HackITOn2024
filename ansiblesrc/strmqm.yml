@@ -1,33 +1,27 @@
 ---
-- name: Display Queue managers
+- name: Start Custom IBM MQ Queue Manager
   hosts: mq_servers
   become: yes
   become_user: mqm
+  vars:
+    qmgr_name: "{{ qmgr_name }}"
   tasks:
-  
-    - name: Display Queue Managers
+
+    - name: Check if Queue Manager exists
+      shell: dspmq | grep {{ qmgr_name }}
+      register: qmgr_exists
+      failed_when: qmgr_exists.rc != 0
+      ignore_errors: yes
+
+    - name: Start the Queue Manager
+      shell: strmqm {{ qmgr_name }}
+      when: qmgr_exists.rc == 0 and '"RUNNING" not in qmgr_exists.stdout'
+      register: start_qmgr_output
+      ignore_errors: yes
+
+    - name: Display Queue Manager status
       shell: dspmq
-      args:
-        executable: /bin/bash
-      register: dspmq_output
+      register: qmgr_status
 
     - debug:
-        msg: "{{ dspmq_output.stdout }}"
-
-    - name: Start qmgrs
-      shell: strmqm
-      args:
-        executable: /bin/bash
-      register: strmq_output
-
-    - debug:
-        msg: "{{ strmq_output.stdout }}"
-
-    - name: Display Queue Managers
-      shell: dspmq
-      args:
-        executable: /bin/bash
-      register: dspmq_output
-
-    - debug:
-        msg: "{{ dspmq_output.stdout }}"
+        msg: "Queue Manager Status: {{ qmgr_status.stdout }}"
