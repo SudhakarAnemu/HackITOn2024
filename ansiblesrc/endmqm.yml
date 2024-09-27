@@ -1,0 +1,27 @@
+---
+- name: Stop Custom IBM MQ Queue Manager
+  hosts: mq_servers
+  become: yes
+  become_user: mqm
+  vars:
+    qmgr_name: "{{ qmgr_name }}"
+  tasks:
+
+    - name: Check if Queue Manager exists
+      shell: dspmq | grep {{ qmgr_name }}
+      register: qmgr_exists
+      failed_when: qmgr_exists.rc != 0
+      ignore_errors: yes
+
+    - name: Stop the Queue Manager
+      shell: endmqm {{ qmgr_name }}
+      #when: qmgr_exists.rc == 0 and '"RUNNING" not in qmgr_exists.stdout'
+      #register: start_qmgr_output
+      ignore_errors: yes
+
+    - name: Display Queue Manager status
+      shell: dspmq
+      register: qmgr_status
+
+    - debug:
+        msg: "Queue Manager Status: {{ qmgr_status.stdout }}"
