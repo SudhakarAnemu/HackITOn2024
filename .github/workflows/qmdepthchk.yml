@@ -1,0 +1,40 @@
+name: Check QM-Queue Properties on AWS
+
+on:
+  workflow_dispatch:  # Manual trigger
+  push:               # Trigger on push events
+    branches:
+      - main
+
+jobs:
+  check-mq-queue:
+    runs-on: ubuntu-latest
+
+    env:
+      ANSIBLE_HOST_KEY_CHECKING: "False"
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'  # Ensure Python 3.x is installed
+
+      - name: Install Ansible
+        run: |
+          python3 -m pip install --upgrade pip
+          pip install ansible boto3  # Install Ansible and boto3 (for AWS)
+
+      - name: Copy SSH key to access AWS EC2 instances
+        uses: shimataro/ssh-key-action@v2
+        with:
+          key: ${{ secrets.AWS_SSH_KEY }}   # SSH key stored in GitHub Secrets
+          known_hosts: ${{ secrets.AWS_KNOWN_HOSTS }}  # AWS known hosts
+
+      - name: Run Ansible Playbook to check IBM MQ queue
+        run: |
+          ansible-playbook ansible/playbooks/display_mq_queue_properties.yml \
+            -e "qmgr_name={{ secrets.MQ_QMGR_NAME }} queue_name={{ secrets.MQ_QUEUE_NAME }}" \
+            -i ansible/inventory/aws_ec2.yml
