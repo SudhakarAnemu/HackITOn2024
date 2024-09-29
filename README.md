@@ -12,7 +12,16 @@ aws : sudhaeai@gmail.com
 4. Created a new VM from existing AMI - its good 
 Here we need to specify the key and secuirty group at Console. 
 5. Lets create VM using Terraform. (Under a subranch Terrarom)
-6. Install ansible on aws 
+6. Install ansible on aws
+7. Github actions on ansible to display qmgr details.
+8. 
+
+----------------------------------------------------------------------- step 7. 
+Github actions on ansible to display qmgr details.
+aws : INMQ - 172.31.40.102
+QM : INDIAQM
+Queue : QL.INDIAQM.SUPPLIER
+
 
 ----------------------------------------------------------------------- step 6. 
 Issues. 
