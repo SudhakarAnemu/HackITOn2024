@@ -22,6 +22,13 @@ aws : INMQ - 172.31.40.102
 QM : INDIAQM
 Queue : QL.INDIAQM.SUPPLIER
 
+Public key : 
+[ec2-user@ip-172-31-40-102 .ssh]$ cat id_rsa.pub
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCkUTmBNSdIb2kPE+BgXPUoMxQLV9Gb5TYAMxYppszJ0IDXynGNLXDirxaWJjQ5zlsIhsDlT+BRg1BZw1FyYtLIfj1cUupL1U6/QlI5O2ojME2xIw3dKVzNQFEKFrlrEA45Fe8dHZJX5b2tWuKu1HqYYDKuv+wWgDlOtaFU7BcrMoDT80xLgNsJ5uq9DkLVhi53oM69lHL+YesbUEx98WuE2JCAyJ5jDvAbhJNGbp8iuKMOCu63Y6OgFqyLO49CPMAAH9n+n5jSpeThon00UX6+qNvYF7EuXF8tGHRiW4FhNfdc+P0zsuACDtRYY+aitd6pLNg4DQ/4GhCJBj1oijD5UMGErLnxe/fSa0vUIN8dhJ1tLVSbXA0Sll3IY03dlPdLtaj8Qe2CacRKzlIMsCNTJNq7622HYQmPbAbO1157sOjqU39W8GHI0bXU8h/KEAY58n3hTvgyGSzsG4qqWXIsHkN4KuKyGe3Hk1YIt4ZKdurDp+4KdQPAWEWa4BP39s0= ec2-user@ip-172-31-40-102.ap-south-1.compute.internal
+[ec2-user@ip-172-31-40-102 .ssh]$ pwd
+/home/ec2-user/.ssh
+[ec2-user@ip-172-31-40-102 .ssh]$
+
 
 ----------------------------------------------------------------------- step 6. 
 Issues. 
