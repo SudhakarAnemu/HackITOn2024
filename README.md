@@ -14,7 +14,36 @@ Here we need to specify the key and secuirty group at Console.
 5. Lets create VM using Terraform. (Under a subranch Terrarom)
 6. Install ansible on aws
 7. Github actions on ansible to display qmgr details.
-8. 
+8. Promothesus - MQ monitoting
+---------------------------------------------------------------------- step 8. 
+Promothesus - MQ monitoting
+aws : INMQ - 172.31.40.102
+QM : INDIAQM
+Queue : QL.INDIAQM.SUPPLIER
+
+Servers : INMQ, Promothesus 
+
+https://www.linkedin.com/pulse/how-install-prometheus-ubutnu-2004-shubham-sahu/
+https://medium.com/@cse.alisyedtanveer/end-to-end-monitoring-deploying-prometheus-grafana-and-exporters-on-ec2-309d7875ebf6
+Medium link : https://medium.com/@kemalozz/how-to-install-and-configure-prometheus-grafana-on-rhel9-a23085992e6e
+gitrepo : https://github.com/devops4solutions/prometheus-monitoring
+1. install promethus 
+/etc/prometheus/prometheus.yml
+/usr/local/bin/prometheus
+journalctl -u prometheus.service --> to check logs 
+sudo systemctl start prometheus
+sudo systemctl enable prometheus
+
+Accessing grafana : 
+http://3.6.92.203:3000  admin/admin 
+
+
+
+
+install prome  : 
+
+
+
 
 ----------------------------------------------------------------------- step 7. 
 Github actions on ansible to display qmgr details.
