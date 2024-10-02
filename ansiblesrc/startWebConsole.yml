@@ -3,22 +3,14 @@
   hosts: mq_servers
   become: yes
   become_user: mqm
-  vars:
-    qmgr_name: "{{ qmgr_name }}"
+
   tasks:
-
-    - name: Verify the status of the webconsole
-      shell: dspmqweb status
-      register: web_status
-
-    - debug:
-        msg: "Status of Web: {{ web_status.stdout }}"
-
+ 
     - name: Start the webconsole
       shell: strmqweb
       register: web_status
       ignore_errors: yes
-      
+
     - debug:
         msg: "Start of the  Webconsole: {{ web_status.stdout }}"
 
