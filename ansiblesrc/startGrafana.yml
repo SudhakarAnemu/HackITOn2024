@@ -1,4 +1,23 @@
-- name: Start Grafana Service
-  service:
-    name: grafana-server
-    state: started
+---
+- name: Start Grafana service
+  hosts: grafana_servers
+  become: true
+
+  tasks:
+    - name: Ensure Grafana is installed
+      apt:
+        name: grafana
+        state: present
+      when: ansible_os_family == 'Debian'
+
+    - name: Ensure Grafana is installed
+      yum:
+        name: grafana
+        state: present
+      when: ansible_os_family == 'RedHat'
+
+    - name: Ensure Grafana service is started and enabled
+      service:
+        name: grafana-server
+        state: started
+        enabled: true
