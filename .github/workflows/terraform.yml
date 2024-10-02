@@ -1,10 +1,13 @@
+#Name of the pipeline
 name: "Creating AWS Instance"
 
+#Hit the code when code pushes to terraform branch
 on:
   push:
     branches:
       - terraform
 
+#Jobs to check out and run all Terraform states
 jobs:
   build:
     name: "Terraform"
