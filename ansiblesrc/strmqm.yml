@@ -1,5 +1,5 @@
 ---
-- name: Start Custom IBM MQ Queue Manager
+- name: Start custom IBM MQ Queue Manager
   hosts: mq_servers
   become: yes
   become_user: mqm

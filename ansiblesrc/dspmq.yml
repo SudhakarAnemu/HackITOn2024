@@ -1,3 +1,4 @@
+#Job to display status of QMGRs of all mentioned hosts
 ---
 - name: Display Queue managers
   hosts: mq_servers
