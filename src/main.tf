@@ -21,6 +21,6 @@ resource "aws_instance" "example" {
   key_name      = "jssepaws2024sudhaeai"
 
   tags = {
-    Name = "PAVAN1004MQSERVER"
+    Name = "VIJAYGUNTUR"
   }
 }
